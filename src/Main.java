@@ -35,21 +35,21 @@ public class Main {
 
     public static void task3() {
         int deliveryDistance = 60;
-        countDeliveryDistance(deliveryDistance);
+
+        System.out.println(countDeliveryDistance(deliveryDistance));
     }
 
 
-    public static void countDeliveryDistance(int deliveryDistance) {
-
+    public static int countDeliveryDistance(int deliveryDistance) {
+        int deliveryDays = 0;
         if (deliveryDistance < 20) {
-            System.out.println("Доставка карты займет 1 сутки.");
-        }
-        if (deliveryDistance >= 20 && deliveryDistance < 60) {
-            System.out.println("Доставка займет 2 суток.");
-        }
-        if (deliveryDistance >= 60 && deliveryDistance < 100) {
-            System.out.println("Доставка займет 3 суток.");
-        }
+            deliveryDays = 1;
+        } else if (deliveryDistance >= 20 && deliveryDistance < 60) {
+            deliveryDays = 2;
+        } else if (deliveryDistance >= 60 && deliveryDistance < 100) {
+            deliveryDays = 3;
+        } else {throw new RuntimeException("Доставка на такое расстояние не осуществляется");}
+        return  deliveryDays;
     }
 
     public static void main (String[] args){
